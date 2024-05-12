@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 메인화면 컬러 -->
+    <color name="main_top_bar">#950000</color>
+    <color name="gray_1">#B3B3B3</color>
+    <color name="gray_2">#F4F4F4</color>
 </resources>
