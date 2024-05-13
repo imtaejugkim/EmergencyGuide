@@ -6,10 +6,10 @@
     <string name="main_search">검색어를 입력하세요</string>
     <string name="main_emergency_guide_top">상황별 응급처치 방법이 궁금하다면</string>
     <string name="main_emergency_guide_bottom">응급처치</string>
-    <string name="main_evacuation_top">내 주변 병원, 약국의 정보가 궁금하다면</string>
-    <string name="main_evacuation_bottom">병원/약국 위치</string>
-    <string name="main_hospital_top">내 주변 대피소 위치가 궁금하다면</string>
-    <string name="main_hospital_bottom">대피</string>
+    <string name="main_evacuation_top">내 주변 대피소 위치가 궁금하다면</string>
+    <string name="main_evacuation_bottom">대피</string>
+    <string name="main_hospital_top">내 주변 병원, 약국의 정보가 궁금하다면</string>
+    <string name="main_hospital_bottom">병원/약국 위치</string>
     <string name="main_emergency_number_top">어디에 전화해야 하는지 궁금하다면</string>
     <string name="main_emergency_number_bottom">긴급 연락처</string>
     <string name="main_medicine_top">무슨 약을 먹어야 하는지 궁금하다면</string>
