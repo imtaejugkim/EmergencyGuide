@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.emergencyguide.EmergencyGuide.EmergencyGuideActivity
 import com.example.emergencyguide.EmergencyNumber.EmergencyNumberActivity
+import com.example.emergencyguide.Evacuation.EvacuationActivity
 import com.example.emergencyguide.HospitalPharmacy.HospitalActivity
 import com.example.emergencyguide.MedicineGuide.MedicineActivity
 import com.example.emergencyguide.databinding.ActivityMainBinding
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.clMainEmergencyNumber.setOnClickListener {
-            val intent = Intent(this, EmergencyNumberActivity::class.java)
+        binding.clMainEvacuation.setOnClickListener {
+            val intent = Intent(this, EvacuationActivity::class.java)
             startActivity(intent)
         }
 
