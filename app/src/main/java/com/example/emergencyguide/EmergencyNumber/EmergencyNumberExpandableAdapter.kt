@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.emergencyguide.MedicineGuide.MedicineToggleAnimation
 import com.example.emergencyguide.R
 
 class EmergencyNumberExpandableAdapter (
@@ -18,16 +17,21 @@ class EmergencyNumberExpandableAdapter (
         itemView : View
     ) : RecyclerView.ViewHolder(itemView) {
         fun bind(emergencyNumber: EmergencyNumber) {
+//            val emerTitle = itemView.findViewById<TextView>(R.id.medicine_name)
             val emerTitle = itemView.findViewById<TextView>(R.id.emergency_number_title)
+
+//            val emerInformation = itemView.findViewById<TextView>(R.id.medicine_description)
             val emerInformation = itemView.findViewById<TextView>(R.id.emergency_number_information)
-            val imgMore = itemView.findViewById<ImageView>(R.id.more_button)
-            val layoutExpand = itemView.findViewById<LinearLayout>(R.id.emergency_number_layout_expand)
+
+//            val imgMore = itemView.findViewById<ImageView>(R.id.more_button)
+            val emerImgMore = itemView.findViewById<ImageView>(R.id.emergency_number_more_button)
+            val emerLayoutExpand = itemView.findViewById<LinearLayout>(R.id.emergency_number_layout_expand)
 
             emerTitle.text = emergencyNumber.title
             emerInformation.text = emergencyNumber.information
 
-            imgMore.setOnClickListener {
-                val show = toggleLayout(!emergencyNumber.isExpanded, it, layoutExpand)
+            emerImgMore.setOnClickListener {
+                val show = toggleLayout(!emergencyNumber.isExpanded, it, emerLayoutExpand)
                 emergencyNumber.isExpanded = show
             }
         }

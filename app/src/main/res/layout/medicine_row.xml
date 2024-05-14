@@ -10,12 +10,12 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/emergency_number_title"
+            android:id="@+id/medicine_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="연락처"
+            android:text="약 이름"
             android:textSize="40dp" />
         <ImageView
             android:id="@+id/more_button"
@@ -33,14 +33,14 @@
         android:background="#F2F2F2"/>
 
     <LinearLayout
-        android:id="@+id/emergency_number_layout_expand"
+        android:id="@+id/medicine_layout_expand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F1F1F1"
         android:visibility="gone"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/emergency_number_information"
+            android:id="@+id/medicine_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
