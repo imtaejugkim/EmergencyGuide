@@ -25,7 +25,7 @@ class MedicineActivity : AppCompatActivity() {
             insets
         }
 
-        val recyclerView = findViewById<RecyclerView>(R.id.medicine_list)
+        val recyclerView = findViewById<RecyclerView>(R.id.emergency_number_list)
 
         medicineList = ArrayList()
         medicineList = loadData()

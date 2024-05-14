@@ -18,10 +18,10 @@ class MedicineExpandableAdapter (
         itemView : View
     ) : RecyclerView.ViewHolder(itemView) {
         fun bind(medicine: Medicine) {
-            val medName = itemView.findViewById<TextView>(R.id.medicine_name)
-            val medDescription = itemView.findViewById<TextView>(R.id.medicine_description)
+            val medName = itemView.findViewById<TextView>(R.id.emergency_number_title)
+            val medDescription = itemView.findViewById<TextView>(R.id.emergency_number_information)
             val imgMore = itemView.findViewById<ImageView>(R.id.more_button)
-            val layoutExpand = itemView.findViewById<LinearLayout>(R.id.medicine_layout_expand)
+            val layoutExpand = itemView.findViewById<LinearLayout>(R.id.emergency_number_layout_expand)
 
             medName.text = medicine.name
             medDescription.text = medicine.description
