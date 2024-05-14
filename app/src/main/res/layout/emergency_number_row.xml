@@ -8,16 +8,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/emergency_number_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="약 이름"
-            android:textSize="40dp"/>
+            android:layout_weight="1"
+            android:text="연락처"
+            android:textSize="40dp" />
         <ImageView
-            android:id="@+id/more_button"
+            android:id="@+id/emergency_number_more_button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="5"
