@@ -13,14 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-<<<<<<< HEAD
-            android:text="약 이름"
-            android:textSize="40dp" />
-=======
             android:layout_margin="10dp"
             android:text="약 이름"
             android:textSize="40dp"/>
->>>>>>> parent of df8fb68 (Feat: Create classes and xmls about EmergencyNumber)
+
         <ImageView
             android:id="@+id/more_button"
             android:layout_width="match_parent"
