@@ -15,4 +15,6 @@
     <string name="main_medicine_top">무슨 약을 먹어야 하는지 궁금하다면</string>
     <string name="main_medicine_bottom">약 복용법</string>
 
+    <!-- 대피 화면 -->
+    <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
 </resources>
