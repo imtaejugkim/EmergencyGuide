@@ -20,15 +20,20 @@
             android:layout_weight="3"
             android:layout_gravity="center"
             android:src="@drawable/ic_back_button" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
             android:layout_weight="1"
+<<<<<<< HEAD
             android:text="약 복용법"
             android:textSize="30dp"
             android:textStyle="bold" />
+=======
+            android:layout_marginVertical="10dp"
+            android:text="약 복용법"
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+>>>>>>> parent of df8fb68 (Feat: Create classes and xmls about EmergencyNumber)
     </LinearLayout>
 
     <androidx.appcompat.widget.SearchView
@@ -43,5 +48,5 @@
         android:id="@+id/medicine_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="15dp" />
+        android:layout_margin="15dp"/>
 </LinearLayout>
