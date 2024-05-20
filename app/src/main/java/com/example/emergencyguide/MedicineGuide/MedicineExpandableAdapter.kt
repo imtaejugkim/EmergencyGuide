@@ -1,9 +1,14 @@
 package com.example.emergencyguide.MedicineGuide
 
 import Medicine
+import MedicineInfo
+import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -11,21 +16,47 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.emergencyguide.R
 
 class MedicineExpandableAdapter (
-    private val medicineList: List<Medicine>
+    private val medicineList: List<Medicine>,
+    private val medicineInfoList: List<MedicineInfo>
 ) : RecyclerView.Adapter<MedicineExpandableAdapter.MyViewHolder>() {
 
-    class MyViewHolder(
-        itemView : View
-    ) : RecyclerView.ViewHolder(itemView) {
-        fun bind(medicine: Medicine) {
+    class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(medicine: Medicine, medicineInfo: MedicineInfo) {
             val medName = itemView.findViewById<TextView>(R.id.medicine_name)
             val medDescription = itemView.findViewById<TextView>(R.id.medicine_description)
             val imgMore = itemView.findViewById<ImageView>(R.id.more_button)
             val layoutExpand = itemView.findViewById<LinearLayout>(R.id.medicine_layout_expand)
-
+            val detail = itemView.findViewById<Button>(R.id.detail)
+/*
+            val medEnterprise = itemView.findViewById<TextView>(R.id.enterprise)
+            val medExpiration = itemView.findViewById<TextView>(R.id.expiration)
+            val medStorage = itemView.findViewById<TextView>(R.id.storage)
+            val medEffect = itemView.findViewById<TextView>(R.id.effect)
+            val medWarning = itemView.findViewById<TextView>(R.id.warning)
+*/
             medName.text = medicine.name
             medDescription.text = medicine.description
+/*
+            medEnterprise.text = medicineInfo.enterprise
+            medExpiration.text = medicineInfo.expiration
+            medStorage.text = medicineInfo.storage
+            medEffect.text = medicineInfo.effect
+            medWarning.text = medicineInfo.warning
 
+            detail.setOnClickListener {
+                val medicineInfo = medicineInfoList[adapterPosition]
+                val intent = Intent(itemView.context, MedicineDetailActivity::class.java)
+                intent.putExtra("medicineInfo", medicineInfo)
+                itemView.context.startActivity(intent)
+            }
+*/
+            detail.setOnClickListener {
+                val context = itemView.context
+                val intent = Intent(context, MedicineDetailActivity::class.java)
+                intent.putExtra("position", adapterPosition)
+                //Log.d("MedicineExpandableAdapter", "$adapterPosition")
+                context.startActivity(intent)
+            }
             imgMore.setOnClickListener {
                 val show = toggleLayout(!medicine.isExpanded, it, layoutExpand)
                 medicine.isExpanded = show
@@ -51,6 +82,6 @@ class MedicineExpandableAdapter (
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(medicineList[position])
+        holder.bind(medicineList[position], medicineInfoList[position])
     }
 }
