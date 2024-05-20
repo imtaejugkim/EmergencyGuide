@@ -1,21 +1,27 @@
 package com.example.emergencyguide.EmergencyNumber
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.emergencyguide.R
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import com.example.emergencyguide.databinding.ActivityEmergencyNumberBinding
 
 class EmergencyNumberActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityEmergencyNumberBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_emergency_number)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityEmergencyNumberBinding.inflate(layoutInflater)
+
+        val composeView = binding.composeViewEmergencyNumber
+        composeView.setContent {
+            InitComposeContent()
         }
+
+        setContentView(binding.root)
+    }
+
+    @Composable
+    private fun InitComposeContent() {
+        Text(text = "Hello from Compose!")
     }
 }
