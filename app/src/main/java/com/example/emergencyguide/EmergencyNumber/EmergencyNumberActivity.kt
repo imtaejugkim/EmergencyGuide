@@ -22,6 +22,6 @@ class EmergencyNumberActivity : AppCompatActivity() {
 
     @Composable
     private fun InitComposeContent() {
-        Text(text = "Hello from Compose!")
+        Text(text = "여기는 약 복용법!")
     }
 }
