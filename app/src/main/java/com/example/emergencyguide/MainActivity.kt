@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
+
         binding.clMainEmergencyGuide.setOnClickListener {
             val intent = Intent(this, EmergencyGuideActivity::class.java)
             startActivity(intent)
