@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.emergencyguide"
-        minSdk = 30
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -55,7 +55,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)// Compose dependencies
+    androidTestImplementation(libs.androidx.espresso.core)
 
     // 컴포즈 의존성
     implementation(libs.androidx.compose.ui)
@@ -63,4 +63,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.compose.ui.tooling.preview)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+
+    // google map
+    implementation(libs.google.maps)
+    implementation(libs.google.locations)
+
+
 }
