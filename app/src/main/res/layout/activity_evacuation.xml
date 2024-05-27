@@ -13,44 +13,56 @@
         android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    <ImageView
-        android:id="@+id/iv_eva_back"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/ic_back_button"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="대피 페이지"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:includeFontPadding="false"
-        android:layout_marginStart="8dp"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/iv_eva_back"
-        app:layout_constraintTop_toTopOf="@id/iv_eva_back"
-        app:layout_constraintBottom_toBottomOf="@id/iv_eva_back"/>
-    <TextView
-        android:id="@+id/tv_eva_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="대피소 위치"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginTop="38dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_eva_back" />
-    <TextView
-        android:id="@+id/tv_eva_location_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="긴급 시 대피소 위치 확인"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_eva_location"/>
+        <ImageView
+            android:id="@+id/iv_eva_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_back_button"
+            android:layout_marginTop="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대피 페이지"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:includeFontPadding="false"
+            android:layout_marginStart="8dp"
+            app:layout_constraintVertical_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/iv_eva_back"
+            app:layout_constraintTop_toTopOf="@id/iv_eva_back"
+            app:layout_constraintBottom_toBottomOf="@id/iv_eva_back"/>
+        <TextView
+            android:id="@+id/tv_eva_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대피소 위치"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginTop="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_eva_back" />
+        <TextView
+            android:id="@+id/tv_eva_location_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="긴급 시 대피소 위치 확인"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_eva_location"/>
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mv_evacuation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toBottomOf="@id/tv_eva_location_check"
+            android:layout_marginTop="12dp"/>
+
+
         <TextView
             android:id="@+id/tv_eva_earthquake_tips"
             android:layout_width="wrap_content"
@@ -60,7 +72,7 @@
             android:textSize="18sp"
             android:layout_marginTop="29dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_eva_location_check"/>
+            app:layout_constraintTop_toBottomOf="@id/mv_evacuation"/>
         <Button
             android:id="@+id/btn_eva_earthquake_read_more"
             android:layout_width="85dp"
