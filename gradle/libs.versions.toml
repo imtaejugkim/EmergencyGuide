@@ -12,6 +12,7 @@ constraintlayout = "2.1.4"
 compose = "1.5.1"
 google-maps-secrets-plugin = "2.0.1"
 google-maps-services = "17.0.0"
+materialIconsExtended = "1.7.0-beta01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +30,7 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose" }
 google-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "google-maps-services"}
 google-locations = { group = "com.google.android.gms", name = "play-services-location", version.ref = "google-maps-services"}
+androidx-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "materialIconsExtended" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

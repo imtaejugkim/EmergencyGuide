@@ -15,7 +15,7 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:text="약 이름"
-            android:textSize="40dp"/>
+            android:textSize="30dp"/>
 
         <ImageView
             android:id="@+id/more_button"
@@ -39,6 +39,27 @@
         android:background="#F1F1F1"
         android:visibility="gone"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:text="복용법"
+                android:textSize="30dp"/>
+            <Button
+                android:id="@+id/detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:text="자세히 보기"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/medicine_description"
             android:layout_width="match_parent"

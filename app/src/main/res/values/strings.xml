@@ -20,4 +20,6 @@
     <string name="hospital_search">병원 검색</string>
     <string name="hospital_detail">상세 보기</string>
 
+    <!-- 대피 화면 -->
+    <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
 </resources>

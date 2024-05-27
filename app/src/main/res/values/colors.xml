@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
 
     <!-- 메인화면 컬러 -->
     <color name="main_top_bar">#950000</color>
