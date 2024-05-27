@@ -3,8 +3,11 @@ package com.example.emergencyguide.HospitalPharmacy
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.emergencyguide.data.HospitalData
 import com.example.emergencyguide.databinding.ActivityHospitalBinding
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -24,9 +27,11 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         initMapView(savedInstanceState)
         initDummyData()
         initRecyclerView()
+        initMoveRecyclerView()
 
         setContentView(binding.root)
     }
+
 
     private fun initDummyData() {
         hospitalData.addAll(
@@ -40,10 +45,31 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         )
     }
 
+    private fun initMoveRecyclerView() {
+        binding.rvHospital.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if(newState == RecyclerView.SCROLL_STATE_IDLE){
+                    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                    val position = layoutManager.findFirstCompletelyVisibleItemPosition()
+                    if (position != RecyclerView.NO_POSITION) {
+                        updateMap(position)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun updateMap(position: Int) {
+
+    }
+
     private fun initRecyclerView() {
         hospitalAdapter = HospitalAdapter(this, hospitalData)
         binding.rvHospital.adapter = hospitalAdapter
         binding.rvHospital.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        PagerSnapHelper().attachToRecyclerView(binding.rvHospital)
     }
 
     private fun initMapView(inst: Bundle?) {
@@ -53,11 +79,14 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
+        val university = LatLng(37.5431, 127.0764)
         googleMap.addMarker(
             MarkerOptions()
-                .position(LatLng(37.5431, 127.0764))
+                .position(university)
                 .title("건국대학교")
         )
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(university, 16f))
+
     }
 
     override fun onStart() {
