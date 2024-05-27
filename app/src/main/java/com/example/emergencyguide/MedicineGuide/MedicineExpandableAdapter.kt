@@ -27,29 +27,10 @@ class MedicineExpandableAdapter (
             val imgMore = itemView.findViewById<ImageView>(R.id.more_button)
             val layoutExpand = itemView.findViewById<LinearLayout>(R.id.medicine_layout_expand)
             val detail = itemView.findViewById<Button>(R.id.detail)
-/*
-            val medEnterprise = itemView.findViewById<TextView>(R.id.enterprise)
-            val medExpiration = itemView.findViewById<TextView>(R.id.expiration)
-            val medStorage = itemView.findViewById<TextView>(R.id.storage)
-            val medEffect = itemView.findViewById<TextView>(R.id.effect)
-            val medWarning = itemView.findViewById<TextView>(R.id.warning)
-*/
+
             medName.text = medicine.name
             medDescription.text = medicine.description
-/*
-            medEnterprise.text = medicineInfo.enterprise
-            medExpiration.text = medicineInfo.expiration
-            medStorage.text = medicineInfo.storage
-            medEffect.text = medicineInfo.effect
-            medWarning.text = medicineInfo.warning
 
-            detail.setOnClickListener {
-                val medicineInfo = medicineInfoList[adapterPosition]
-                val intent = Intent(itemView.context, MedicineDetailActivity::class.java)
-                intent.putExtra("medicineInfo", medicineInfo)
-                itemView.context.startActivity(intent)
-            }
-*/
             detail.setOnClickListener {
                 val context = itemView.context
                 val intent = Intent(context, MedicineDetailActivity::class.java)

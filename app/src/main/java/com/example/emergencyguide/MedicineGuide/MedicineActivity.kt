@@ -24,8 +24,8 @@ import java.io.IOException
 
 class MedicineActivity : AppCompatActivity() {
 
-    lateinit var medicineList: ArrayList<Medicine>
-    lateinit var medicineInfoList: ArrayList<MedicineInfo>
+    private lateinit var medicineList: ArrayList<Medicine>
+    private lateinit var medicineInfoList: List<MedicineInfo>
     private lateinit var adapter: MedicineExpandableAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +41,8 @@ class MedicineActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.medicine_list)
 
         medicineList = ArrayList()
-        medicineInfoList = ArrayList()
-        loadData()
+        loadData1()
+        medicineInfoList = loadData2()
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -55,7 +55,7 @@ class MedicineActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadData() {
+    private fun loadData1() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val doc1 = Jsoup.connect("https://nedrug.mfds.go.kr/pbp/CCBCA01/getList?totalPages=2&page=1&limit=10&sort=&sortOrder=&searchYn=&itemName=&entpName=")
@@ -66,120 +66,28 @@ class MedicineActivity : AppCompatActivity() {
                 val elements2 = doc2.select("div.container_wrap div#container div#content_wrap div#content div#con_body div#list table.tb_list.th-shot tbody tr")
 
                 var name: String = ""
-                var link: String = ""
-                //var enterprise: String = ""
-                //var expiration: String = ""
-                //var storage: String = ""
-                //var effect: String = ""
-                var description: String = ""
-                //var warning: String = ""
+                var i = 0
+                val descriptions = resources.getStringArray(R.array.description)
                 for (ele in elements1) {
                     val firstElement = ele.select("td.al_l span span.blue_cr a").first()
                     if (firstElement != null) {
                         name = firstElement.text()
-                        link = firstElement.absUrl("href")
-                        //Log.d("MedicineActivity", "Name: $name, Link: $link")
                     }
-//                    val secondElement = ele.select("td.al_l span.s-th:contains(업체명) + span").first()
-//                    if (secondElement != null) {
-//                        enterprise = secondElement.text()
-//                        Log.d("MedicineActivity", "Enterprise: $enterprise")
-//                    }
-//                    val thirdElement = ele.select("td span.s-th:contains(유효기간) + span").first()
-//                    if (thirdElement != null) {
-//                        expiration = thirdElement.text()
-//                        Log.d("MedicineActivity", "Expiration: $expiration")
-//                    }
-//                    val fourthElement = ele.select("td.al_l span.s-th:contains(저장방법) + span").first()
-//                    if (fourthElement != null) {
-//                        storage = fourthElement.text()
-//                        Log.d("MedicineActivity", "Storage: $storage")
-//                    }
 
-                    val doc = Jsoup.connect(link).get()
-                    val elements = doc.select("div.container_wrap div#container div#content_wrap div#content div#con_body div#view table.tb_base tbody tr")
-//                    val fifthElement = elements.select("th:contains(효능효과)").first()
-//                    if (fifthElement != null) {
-//                        val fElement = fifthElement.nextElementSibling()?.select("p.indent0")?.first()
-//                        if (fElement != null) {
-//                            effect = fElement.text()
-//                            Log.d("MedicineActivity", "Effect: $effect")
-//                        }
-//                    }
-                    val sixthElement = elements.select("th:contains(용법용량)").first()
-                    if (sixthElement != null) {
-                        val sElement = sixthElement.nextElementSibling()
-                        if (sElement != null) {
-                            description = sElement.text()
-                            //Log.d("MedicineActivity", "Description: $description")
-                        }
-                    }
-//                    val seventhElement = elements.select("th:contains(주의사항)").first()
-//                    if (seventhElement != null) {
-//                        val seElement = seventhElement.nextElementSibling()
-//                        if (seElement != null) {
-//                            warning = seElement.text()
-//                            Log.d("MedicineActivity", "Warning: $warning")
-//                        }
-//                    }
-
-                    medicineList.add(Medicine(name, link, description, false))
-                    medicineInfoList.add(MedicineInfo(name, "enterprise", "expiration", "storage", "effect", description, "warning"))
+                    medicineList.add(Medicine(name, descriptions[i], false))
+                    i++
+                    //medicineInfoList.add(MedicineInfo(name, "enterprise", "expiration", "storage", "effect", description, "warning"))
                 }
                 for (ele in elements2) {
                     val firstElement = ele.select("td.al_l span span.blue_cr a").first()
                     if (firstElement != null) {
                         name = firstElement.text()
-                        link = firstElement.absUrl("href")
-                        //Log.d("MedicineActivity", "Name: $name, Link: $link")
                     }
-//                    val secondElement = ele.select("td.al_l span.s-th:contains(업체명) + span").first()
-//                    if (secondElement != null) {
-//                        enterprise = secondElement.text()
-//                        Log.d("MedicineActivity", "Enterprise: $enterprise")
-//                    }
-//                    val thirdElement = ele.select("td span.s-th:contains(유효기간) + span").first()
-//                    if (thirdElement != null) {
-//                        expiration = thirdElement.text()
-//                        Log.d("MedicineActivity", "Expiration: $expiration")
-//                    }
-//                    val fourthElement = ele.select("td.al_l span.s-th:contains(저장방법) + span").first()
-//                    if (fourthElement != null) {
-//                        storage = fourthElement.text()
-//                        Log.d("MedicineActivity", "Storage: $storage")
-//                    }
 
-                    val doc = Jsoup.connect(link).get()
-                    val elements = doc.select("div.container_wrap div#container div#content_wrap div#content div#con_body div#view table.tb_base tbody tr")
-//                    val fifthElement = elements.select("th:contains(효능효과)").first()
-//                    if (fifthElement != null) {
-//                        val fElement = fifthElement.nextElementSibling()?.select("p.indent0")?.first()
-//                        if (fElement != null) {
-//                            effect = fElement.text()
-//                            Log.d("MedicineActivity", "Effect: $effect")
-//                        }
-//                    }
-                    val sixthElement = elements.select("th:contains(용법용량)").first()
-                    if (sixthElement != null) {
-                        val sElement = sixthElement.nextElementSibling()?.select("p.indent0")?.first()
-                        if (sElement != null) {
-                            description = sElement.text()
-                            //Log.d("MedicineActivity", "Description: $description")
-                        }
-                    }
-//                    val seventhElement = elements.select("th:contains(주의사항)").first()
-//                    if (seventhElement != null) {
-//                        val seElement = seventhElement.nextElementSibling()
-//                        if (seElement != null) {
-//                            warning = seElement.text()
-//                            Log.d("MedicineActivity", "Warning: $warning")
-//                        }
-//                    }
-
-                    medicineList.add(Medicine(name, link, description, false))
-                    medicineInfoList.add(MedicineInfo(name, "enterprise", "expiration", "storage", "effect", description, "warning"))
+                    medicineList.add(Medicine(name, descriptions[i], false))
+                    i++
+                    //medicineInfoList.add(MedicineInfo(name, "enterprise", "expiration", "storage", "effect", description, "warning"))
                 }
-
 
                 withContext(Dispatchers.Main) {
                     this@MedicineActivity.medicineList = medicineList
@@ -189,6 +97,33 @@ class MedicineActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+    }
+
+    private fun loadData2(): List<MedicineInfo> {
+        val medicines = ArrayList<MedicineInfo>()
+
+        val names = resources.getStringArray(R.array.name)
+        val enterprises = resources.getStringArray(R.array.enterprise)
+        val expirations = resources.getStringArray(R.array.expiration)
+        val storages = resources.getStringArray(R.array.storage)
+        val effects = resources.getStringArray(R.array.effect)
+        val descriptions = resources.getStringArray(R.array.description)
+        val warnings = resources.getStringArray(R.array.warning)
+
+        for (i in names.indices) {
+            val medicine = MedicineInfo().apply {
+                name = names[i]
+                enterprise = enterprises[i]
+                expiration = expirations[i]
+                storage = storages[i]
+                effect = effects[i]
+                description = descriptions[i]
+                warning = warnings[i]
+            }
+            medicines.add(medicine)
+        }
+
+        return medicines
     }
 
 }
