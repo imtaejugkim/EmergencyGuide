@@ -319,6 +319,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:paddingStart="12dp"
             android:layout_marginBottom="21dp"
             android:background="@drawable/main_rectangle_gray2_10"
             app:layout_constraintTop_toTopOf="parent">
@@ -336,7 +337,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
-                android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 app:layout_constraintTop_toTopOf="@id/iv_main_medicine"
                 app:layout_constraintBottom_toBottomOf="@id/iv_main_medicine"
