@@ -20,8 +20,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Call
@@ -34,17 +37,29 @@ import androidx.compose.material.icons.filled.Looks4
 import androidx.compose.material.icons.filled.LooksOne
 import androidx.compose.material.icons.filled.LooksTwo
 import androidx.compose.material.icons.filled.Waves
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.emergencyguide.EmergencyNumber.composables.AddandEditButtons
+import com.example.emergencyguide.EmergencyNumber.composables.CreatePersonalDialog
+import com.example.emergencyguide.EmergencyNumber.composables.EmergencyContact
 
 class EmergencyNumberActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmergencyNumberBinding
-    private val tabsList = listOf("긴급", "비긴급")
+    private val tabsList = listOf("국가", "개인")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +76,15 @@ class EmergencyNumberActivity : AppCompatActivity() {
     @Composable
     private fun InitComposeContent() {
         val selectedTabIndex = remember { mutableStateOf(0) }
+
+        val isDialogOpen = remember { mutableStateOf(false) }
+        val contacts = remember { mutableStateListOf<Pair<String, String>>() }
+
+
+
+        CreatePersonalDialog(isDialogOpen) { number, description ->
+            contacts.add(number to description)
+        }
 
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -107,61 +131,14 @@ class EmergencyNumberActivity : AppCompatActivity() {
                         EmergencyContact(Icons.Default.Waves, "122", "해양사고")
                     }
                     1 -> {
-                        AddandEditButtons()
-                        EmergencyContact(Icons.Default.LooksOne, "010-1111-1111", "비긴급 1번")
-                        EmergencyContact(Icons.Default.LooksTwo, "010-2222-2222", "비긴급 2번")
-                        EmergencyContact(Icons.Default.Looks3, "010-3333-3333", "비긴급 3번")
-                        EmergencyContact(Icons.Default.Looks4, "010-4444-4444", "비긴급 4번")
+
+                        AddandEditButtons(onAddClick = { isDialogOpen.value = true })
+                        contacts.forEach { (number, description) ->
+                            EmergencyContact(Icons.Default.AccountBox, number, description)
+                        }
+
                     }
                 }
-            }
-        }
-    }
-
-
-    @Composable
-    fun EmergencyContact(icon: androidx.compose.ui.graphics.vector.ImageVector, number: String, title: String) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(100.dp)
-                .padding(vertical = 8.dp),
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(imageVector = icon, contentDescription = title, modifier = Modifier.size(24.dp))
-                Spacer(modifier = Modifier.width(16.dp))
-                Column(
-                    modifier = Modifier.weight(1f)
-                ) {
-                    Text(text = number, style = MaterialTheme.typography.h6, fontWeight = FontWeight.Bold)
-                    Text(text = title)
-                }
-                IconButton(onClick = { /* call action 적기 */ }) {
-                    Icon(imageVector = Icons.Default.Call, contentDescription = "Call")
-                }
-            }
-            Divider(color = Color.Gray, thickness = 1.dp, modifier = Modifier.align(Alignment.BottomCenter))
-        }
-    }
-
-    @Composable
-    fun AddandEditButtons() {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                ,
-            horizontalArrangement = Arrangement.End,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            IconButton(onClick = { /* TODO: Add action */ }) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
-            }
-            IconButton(onClick = { /* TODO: Edit action */ }) {
-                Icon(imageVector = Icons.Default.Edit, contentDescription = "Edit")
             }
         }
     }
