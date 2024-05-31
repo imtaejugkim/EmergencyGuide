@@ -53,7 +53,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.emergencyguide.EmergencyNumber.composables.AddandEditButtons
+import com.example.emergencyguide.EmergencyNumber.composables.AddandDeleteButtons
 import com.example.emergencyguide.EmergencyNumber.composables.CreatePersonalDialog
 import com.example.emergencyguide.EmergencyNumber.composables.EmergencyContact
 
@@ -132,7 +132,7 @@ class EmergencyNumberActivity : AppCompatActivity() {
                     }
                     1 -> {
 
-                        AddandEditButtons(onAddClick = { isDialogOpen.value = true })
+                        AddandDeleteButtons(onAddClick = { isDialogOpen.value = true })
                         contacts.forEach { (number, description) ->
                             EmergencyContact(Icons.Default.AccountBox, number, description)
                         }

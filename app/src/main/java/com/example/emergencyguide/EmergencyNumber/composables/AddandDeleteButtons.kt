@@ -7,13 +7,14 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun AddandEditButtons(onAddClick: () -> Unit) {
+fun AddandDeleteButtons(onAddClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -23,8 +24,8 @@ fun AddandEditButtons(onAddClick: () -> Unit) {
         IconButton(onClick = onAddClick) {
             Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
         }
-        IconButton(onClick = { /* TODO: Edit action */ }) {
-            Icon(imageVector = Icons.Default.Edit, contentDescription = "Edit")
+        IconButton(onClick = { /* TODO: Delete action */ }) {
+            Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete")
         }
     }
 }
