@@ -22,8 +22,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.LocalHospital
 import androidx.compose.material.icons.filled.LocalPolice
@@ -105,6 +107,7 @@ class EmergencyNumberActivity : AppCompatActivity() {
                         EmergencyContact(Icons.Default.Waves, "122", "해양사고")
                     }
                     1 -> {
+                        AddandEditButtons()
                         EmergencyContact(Icons.Default.LooksOne, "010-1111-1111", "비긴급 1번")
                         EmergencyContact(Icons.Default.LooksTwo, "010-2222-2222", "비긴급 2번")
                         EmergencyContact(Icons.Default.Looks3, "010-3333-3333", "비긴급 3번")
@@ -144,4 +147,23 @@ class EmergencyNumberActivity : AppCompatActivity() {
             Divider(color = Color.Gray, thickness = 1.dp, modifier = Modifier.align(Alignment.BottomCenter))
         }
     }
+
+    @Composable
+    fun AddandEditButtons() {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                ,
+            horizontalArrangement = Arrangement.End,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(onClick = { /* TODO: Add action */ }) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
+            }
+            IconButton(onClick = { /* TODO: Edit action */ }) {
+                Icon(imageVector = Icons.Default.Edit, contentDescription = "Edit")
+            }
+        }
+    }
+
 }
