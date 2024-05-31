@@ -37,6 +37,7 @@ import androidx.compose.material.icons.filled.Looks4
 import androidx.compose.material.icons.filled.LooksOne
 import androidx.compose.material.icons.filled.LooksTwo
 import androidx.compose.material.icons.filled.Waves
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -78,69 +79,87 @@ class EmergencyNumberActivity : AppCompatActivity() {
         val selectedTabIndex = remember { mutableStateOf(0) }
 
         val isDialogOpen = remember { mutableStateOf(false) }
-        val contacts = remember { mutableStateListOf<Pair<String, String>>() }
+
+        // 수정 중인지 여부
+        val isEditing = remember { mutableStateOf(false) }
+
+
+        // 연락처
+        val contacts = remember { mutableStateListOf<Triple<String, String, Boolean>>() }
 
 
 
-        CreatePersonalDialog(isDialogOpen) { number, description ->
-            contacts.add(number to description)
+        // isSelected가 true인 연락처들을 contacts에서 제거하는 함수
+        fun handleDeleteCompleteClick() {
+            contacts.removeAll { it.third }
+            isEditing.value = false
         }
 
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = Color.White
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
+
+        CreatePersonalDialog(isDialogOpen) { number, description, isSelected ->
+            contacts.add(Triple(number, description, isSelected))
+        }
+
+
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = Color.White
             ) {
-                TopAppBar(
-                    title = { Text(text = "긴급 연락처") },
-                    navigationIcon = {
-                        IconButton(onClick = { finish() }) {
-                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
-                        }
-                    },
-                    backgroundColor = Color.White,
-                    contentColor = Color.Black,
-                    elevation = 0.dp
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                ) {
+                    TopAppBar(
+                        title = { Text(text = "긴급 연락처") },
+                        navigationIcon = {
+                            IconButton(onClick = { finish() }) {
+                                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                            }
+                        },
+                        backgroundColor = Color.White,
+                        contentColor = Color.Black,
+                        elevation = 0.dp
+                    )
 
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) { // 왼쪽 정렬
-                    TabRow(
-                        selectedTabIndex = selectedTabIndex.value,
-                        backgroundColor = Color.Transparent, // 배경 투명하게
-                        contentColor = Color.Black // 글자 검은색으로
-                    ) {
-                        tabsList.forEachIndexed { index, title ->
-                            Tab(
-                                text = { Text(title) },
-                                selected = selectedTabIndex.value == index,
-                                onClick = { selectedTabIndex.value = index }
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) { // 왼쪽 정렬
+                        TabRow(
+                            selectedTabIndex = selectedTabIndex.value,
+                            backgroundColor = Color.Transparent, // 배경 투명하게
+                            contentColor = Color.Black // 글자 검은색으로
+                        ) {
+                            tabsList.forEachIndexed { index, title ->
+                                Tab(
+                                    text = { Text(title) },
+                                    selected = selectedTabIndex.value == index,
+                                    onClick = { selectedTabIndex.value = index }
+                                )
+                            }
+                        }
+                    }
+
+                    when (selectedTabIndex.value) {
+                        0 -> {
+                            EmergencyContact(Icons.Default.LocalFireDepartment, "119", "화재", isEditing)
+                            EmergencyContact(Icons.Default.LocalHospital, "119", "응급실", isEditing)
+                            EmergencyContact(Icons.Default.LocalPolice, "112", "경찰", isEditing)
+                            EmergencyContact(Icons.Default.Waves, "122", "해양사고", isEditing)
+                        }
+                        1 -> {
+
+                            AddandDeleteButtons(
+                                onAddClick = { isDialogOpen.value = true },
+                                onDeleteClick = { isEditing.value = true },
+                                onDeleteCompleteClick = { handleDeleteCompleteClick() },
+                                isEditing = isEditing
                             )
+                            contacts.forEach { (number, description) ->
+                                EmergencyContact(Icons.Default.AccountBox, number, description, isEditing)
+                            }
+
                         }
-                    }
-                }
-
-                when (selectedTabIndex.value) {
-                    0 -> {
-                        EmergencyContact(Icons.Default.LocalFireDepartment, "119", "화재")
-                        EmergencyContact(Icons.Default.LocalHospital, "119", "응급실")
-                        EmergencyContact(Icons.Default.LocalPolice, "112", "경찰")
-                        EmergencyContact(Icons.Default.Waves, "122", "해양사고")
-                    }
-                    1 -> {
-
-                        AddandDeleteButtons(onAddClick = { isDialogOpen.value = true })
-                        contacts.forEach { (number, description) ->
-                            EmergencyContact(Icons.Default.AccountBox, number, description)
-                        }
-
                     }
                 }
             }
         }
-    }
-
 }

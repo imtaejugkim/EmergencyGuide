@@ -27,8 +27,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CreatePersonalDialog(isDialogOpen: MutableState<Boolean>, onAddContact: (String, String) -> Unit) {
-    val focusRequester = remember { FocusRequester() }
+fun CreatePersonalDialog(isDialogOpen: MutableState<Boolean>, onAddContact: (String, String, Boolean) -> Unit) {
     val errorState = remember { mutableStateOf("") }
 
     if (isDialogOpen.value) {
@@ -89,7 +88,7 @@ fun CreatePersonalDialog(isDialogOpen: MutableState<Boolean>, onAddContact: (Str
                                 if (number.value.isBlank() || description.value.isBlank()) {
                                     errorState.value = "전화번호나 설명을 입력해주세요."
                                 } else {
-                                    onAddContact(number.value, description.value)
+                                    onAddContact(number.value, description.value, false)
                                     isDialogOpen.value = false
                                     errorState.value = ""
                                 }
