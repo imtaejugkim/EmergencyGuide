@@ -27,7 +27,7 @@
             android:text="약 복용법"
             android:layout_marginVertical="10dp"
             android:textStyle="bold"
-            android:textSize="30dp"/>
+            android:textSize="25dp"/>
 
     </LinearLayout>
 
