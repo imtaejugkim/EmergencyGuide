@@ -32,7 +32,9 @@
         <activity
             android:name=".EmergencyGuide.EmergencyGuideActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".EmergencyGuide.DetailActivity"
+            android:exported="false" />
         <activity
             android:name=".MedicineGuide.MedicineDetailActivity"
             android:exported="false" />
