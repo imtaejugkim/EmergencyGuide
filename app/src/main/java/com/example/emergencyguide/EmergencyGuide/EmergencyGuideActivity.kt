@@ -59,10 +59,12 @@ class EmergencyGuideActivity : AppCompatActivity() {
         }
         setContentView(binding.root)
     }
+
     @Composable
     fun InitComposeContent() {
         val selectedTabIndex = remember { mutableStateOf(0) }
         val expandedBoxIndex = remember { mutableStateOf<Int?>(null) }
+        var query by remember { mutableStateOf("") }
 
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -84,8 +86,6 @@ class EmergencyGuideActivity : AppCompatActivity() {
                     contentColor = Color.Black,
                     elevation = 0.dp
                 )
-
-                var query by remember { mutableStateOf("") }
 
                 Row(
                     modifier = Modifier
@@ -113,13 +113,13 @@ class EmergencyGuideActivity : AppCompatActivity() {
                             }
                     )
                 }
-                AccordionButtons(expandedBoxIndex)
+                AccordionButtons(expandedBoxIndex, query)
             }
         }
     }
 
     @Composable
-    fun AccordionButtons(expandedBoxIndex: MutableState<Int?>) {
+    fun AccordionButtons(expandedBoxIndex: MutableState<Int?>, query: String) {
         val boxData = listOf(
             ExpandableBoxData(
                 title = "심정지",
@@ -131,7 +131,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
             ),
             ExpandableBoxData(
                 title = "기도폐쇄/목에 걸림",
-                content = "하임리히법",
+                content = "하임리히법(Heimlich)",
                 steps = listOf(
                     StepData(R.drawable.ic_earthquake, "Heimlich Step 1", listOf("Description 1.1", "Description 1.2")),
                     StepData(R.drawable.ic_earthquake, "Heimlich Step 2", listOf("Description 2.1", "Description 2.2")),
@@ -147,12 +147,14 @@ class EmergencyGuideActivity : AppCompatActivity() {
             )
         )
 
+        val filteredBoxData = boxData.filter { it.title.contains(query, ignoreCase = true) || it.content.contains(query, ignoreCase = true) }
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            boxData.forEachIndexed { index, data ->
+            filteredBoxData.forEachIndexed { index, data ->
                 ExpandableBox(
                     data = data,
                     isExpanded = expandedBoxIndex.value == index,
@@ -242,4 +244,3 @@ class EmergencyGuideActivity : AppCompatActivity() {
         }
     }
 }
-
