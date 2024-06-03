@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.emergencyguide"
-        minSdk = 26
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -71,5 +71,7 @@ dependencies {
     // 이미지 Glide
     implementation("com.github.bumptech.glide:glide:4.13.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
+
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
 
 }
