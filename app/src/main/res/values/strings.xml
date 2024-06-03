@@ -21,6 +21,13 @@
     <string name="hospital_search">병원 검색</string>
     <string name="hospital_detail">상세 보기</string>
 
+    <!-- hospital detail 화면 -->
+    <string name="hospital_detail_address">주소</string>
+    <string name="hospital_detail_hours">영업시간</string>
+    <string name="hospital_detail_phone">전화번호</string>
+    <string name="hospital_detail_review">리뷰</string>
+    <string name="hospital_detail_post">작성</string>
+
     <!-- 대피 화면 -->
     <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
 </resources>
