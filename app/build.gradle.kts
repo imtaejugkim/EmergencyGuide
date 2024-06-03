@@ -54,6 +54,7 @@ dependencies {
     implementation("org.jsoup:jsoup:1.14.3")
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.material3.android)
+    implementation(libs.accompanist.permissions)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
