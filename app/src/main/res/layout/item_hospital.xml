@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingBottom="8dp"
-    android:layout_marginEnd="20dp"
+    android:layout_marginEnd="25dp"
     android:background="@drawable/hospital_rectangle_6"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 

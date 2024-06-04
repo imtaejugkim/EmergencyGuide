@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">EmergencyGuide</string>
+    <string name="google_api_key">AIzaSyDah3TDwA26PzqpNtFuGq9EI9G3GB1Efhg</string>
 
     <!-- main 화면 -->
     <string name="main_top">무엇을\n도와드릴까요?</string>

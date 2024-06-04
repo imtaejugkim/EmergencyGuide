@@ -1,5 +1,8 @@
 package com.example.emergencyguide.EmergencyNumber.composables
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,17 +28,25 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun EmergencyContact(icon: androidx.compose.ui.graphics.vector.ImageVector,
                      number: String,
                      title: String,
                      isEditing: MutableState<Boolean>,
-                     ) {
+                     isSelected: MutableState<Boolean> // isSelected 상태를 인자로 추가
+)  {
 
-    val isSelected = remember { mutableStateOf(false) }
+    val context = LocalContext.current // 현재 Context를 가져옵니다.
+    val permissionState = rememberPermissionState(permission = android.Manifest.permission.CALL_PHONE)
+
 
     Box(
         modifier = Modifier
@@ -62,7 +73,18 @@ fun EmergencyContact(icon: androidx.compose.ui.graphics.vector.ImageVector,
                     onCheckedChange = { newValue -> isSelected.value = newValue }
                 )
             } else {
-                IconButton(onClick = { /* call action 적기 */ }) {
+                IconButton(onClick = { // 전화 앱을 시작합니다.
+
+                    if(permissionState.status.isGranted){
+                        val number = Uri.parse("tel:$number")
+                        val callIntent = Intent(Intent.ACTION_CALL, number)
+                        context.startActivity(callIntent)
+                    }
+
+                    else
+                        permissionState.launchPermissionRequest()
+
+                     }) {
                     Icon(imageVector = Icons.Default.Call, contentDescription = "Call")
                 }
             }
@@ -70,3 +92,4 @@ fun EmergencyContact(icon: androidx.compose.ui.graphics.vector.ImageVector,
         Divider(color = Color.Gray, thickness = 1.dp, modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
+
