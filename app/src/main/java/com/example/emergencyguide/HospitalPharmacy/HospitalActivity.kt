@@ -39,7 +39,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         initMapView(savedInstanceState)
         initRecyclerView()
         initMoveRecyclerView()
-        initShowDetail()
+//        initShowDetail()
     }
 
     private fun initShowDetail() {
@@ -91,14 +91,14 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         val url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
                 "?location=${baseLocation.latitude},${baseLocation.longitude}" +
                 "&radius=1000" +
-                "&type=hospital|pharmacy" +
+                "&type=hospital" +
                 "&key=$apiKey"
         val client = OkHttpClient()
         val request = Request.Builder().url(url).build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                Log.e("HospitalActivity", "API call failed", e)
+                Log.e("HospitalActivity", e.toString(), e)
             }
 
             override fun onResponse(call: Call, response: Response) {
