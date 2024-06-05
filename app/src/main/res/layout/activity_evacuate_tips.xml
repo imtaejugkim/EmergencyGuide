@@ -52,8 +52,9 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_eva_tips"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@id/tab_eva_tips"/>
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_eva_tips"
+                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -11,8 +11,8 @@ class TipsVPAdapter (fragmentActivity: FragmentActivity) : FragmentStateAdapter(
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> EvacuateTipsFragment()
-            1 -> EvacuateTipsFragment()
+            0 -> EvacuateTipsFragment(0)
+            1 -> EvacuateTipsFragment(1)
             else -> throw IllegalStateException("Unexpected position $position")
         }
     }
