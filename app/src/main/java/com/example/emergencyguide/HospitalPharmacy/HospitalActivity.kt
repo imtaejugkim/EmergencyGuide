@@ -1,5 +1,6 @@
 package com.example.emergencyguide.HospitalPharmacy
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -39,14 +40,26 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         initMapView(savedInstanceState)
         initRecyclerView()
         initMoveRecyclerView()
-//        initShowDetail()
+        initShowDetail()
     }
 
     private fun initShowDetail() {
         binding.clShowDetail.setOnClickListener {
+            val selectedPosition = (binding.rvHospital.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
+            if (selectedPosition != RecyclerView.NO_POSITION && hospitalData.isNotEmpty()) {
+                val selectedHospital = hospitalData[selectedPosition]
 
+                val intent = Intent(this, HospitalDetailActivity::class.java)
+                intent.putExtra("hospitalName", selectedHospital.hospitalName)
+                intent.putExtra("hospitalImg", selectedHospital.hospitalImg)
+                intent.putExtra("hospitalTime", selectedHospital.hospitalTime)
+                intent.putExtra("hospitalLat", selectedHospital.hospitalLat)
+                intent.putExtra("hospitalLng", selectedHospital.hospitalLng)
+                startActivity(intent)
+            }
         }
     }
+
 
     private fun initRecyclerView() {
         hospitalAdapter = HospitalAdapter(this, hospitalData)

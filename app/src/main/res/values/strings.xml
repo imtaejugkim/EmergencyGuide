@@ -28,6 +28,14 @@
     <string name="hospital_detail_review">리뷰</string>
     <string name="hospital_detail_post">작성</string>
 
+    <!-- review post 화면 -->
+    <string name="review_post_title">병원(약국) 리뷰 작성</string>
+    <string name="review_post_name">이름</string>
+    <string name="review_post">리뷰 작성하기</string>
+    <string name="review_post_name_hint">이름을 작성해주세요</string>
+    <string name="review_post_hint">리뷰를 작성해주세요</string>
+    <string name="review_post_submit">리뷰 제출</string>
+
     <!-- 대피 화면 -->
     <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
 </resources>
