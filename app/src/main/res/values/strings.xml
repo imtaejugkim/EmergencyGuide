@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">EmergencyGuide</string>
+    <string name="google_api_key">AIzaSyDah3TDwA26PzqpNtFuGq9EI9G3GB1Efhg</string>
 
     <!-- main 화면 -->
     <string name="main_top">무엇을\n도와드릴까요?</string>
@@ -15,4 +16,26 @@
     <string name="main_medicine_top">무슨 약을 먹어야 하는지 궁금하다면</string>
     <string name="main_medicine_bottom">약 복용법</string>
 
+    <!-- hospital 화면 -->
+    <string name="hospital_title">병원(약국) 위치</string>
+    <string name="hospital_search">병원 검색</string>
+    <string name="hospital_detail">상세 보기</string>
+
+    <!-- hospital detail 화면 -->
+    <string name="hospital_detail_address">주소</string>
+    <string name="hospital_detail_hours">영업시간</string>
+    <string name="hospital_detail_phone">전화번호</string>
+    <string name="hospital_detail_review">리뷰</string>
+    <string name="hospital_detail_post">작성</string>
+
+    <!-- review post 화면 -->
+    <string name="review_post_title">병원(약국) 리뷰 작성</string>
+    <string name="review_post_name">이름</string>
+    <string name="review_post">리뷰 작성하기</string>
+    <string name="review_post_name_hint">이름을 작성해주세요</string>
+    <string name="review_post_hint">리뷰를 작성해주세요</string>
+    <string name="review_post_submit">리뷰 제출</string>
+
+    <!-- 대피 화면 -->
+    <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
 </resources>
