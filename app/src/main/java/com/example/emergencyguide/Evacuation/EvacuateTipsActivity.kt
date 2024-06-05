@@ -12,14 +12,18 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class EvacuateTipsActivity : AppCompatActivity() {
     lateinit var binding: ActivityEvacuateTipsBinding
-
     var diasterType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEvacuateTipsBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
+        setContentView(binding.root)
 
+        setViewPager()
+        setListeners()
+    }
+
+    private fun setViewPager() {
         binding.vpEvaTips.adapter = TipsVPAdapter(this)
         diasterType = intent.getStringExtra("disaster")!!
         binding.tvEvacuateTips.text = diasterType + " 대피 요령"
@@ -31,17 +35,7 @@ class EvacuateTipsActivity : AppCompatActivity() {
                 else -> null
             }
         }.attach()
-
-        setListeners()
-
-        setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
-
     private fun setListeners() {
         binding.ivEvaTipsBack.setOnClickListener {
             finish()

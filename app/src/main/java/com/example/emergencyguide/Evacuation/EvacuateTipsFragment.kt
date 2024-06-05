@@ -5,16 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.emergencyguide.R
+import com.example.emergencyguide.databinding.FragmentEvacuateTipsBinding
 
-class EvacuateTipsFragment(disasterType: String) : Fragment() {
+class EvacuateTipsFragment() : Fragment() {
+    lateinit var binding: FragmentEvacuateTipsBinding
+    private lateinit var evacuateTipsAdapter: EvacuateTipsAdapter
+    private var evacuateTipsData: ArrayList<EvacuateTipsData> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_evacuate_tips, container, false)
+    ): View {
+        binding = FragmentEvacuateTipsBinding.inflate(layoutInflater)
+
+        setRecyclerView()
+
+        return binding.root
     }
 
+    private fun setRecyclerView() {
+        evacuateTipsAdapter = EvacuateTipsAdapter(requireContext(), evacuateTipsData)
+        binding.rvEvaTips.adapter = evacuateTipsAdapter
+        binding.rvEvaTips.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+    }
 }
