@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
+            android:fontFamily="@font/pretendard_regular"
             android:text="약 이름"
             android:textSize="25dp"/>
 
@@ -50,6 +51,7 @@
                 android:layout_gravity="center"
                 android:layout_marginVertical="5dp"
                 android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/pretendard_light"
                 android:text="복용법"
                 android:textSize="23dp"/>
             <Button
@@ -62,6 +64,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:background="@drawable/custom_button1"
                 android:elevation="50dp"
+                android:fontFamily="@font/pretendard_light"
                 android:text="자세히 보기"/>
         </LinearLayout>
         <TextView
@@ -71,6 +74,7 @@
             android:layout_marginVertical="15dp"
             android:layout_marginHorizontal="30dp"
             android:singleLine="false"
+            android:fontFamily="@font/pretendard_light"
             android:text="약 설명"
             android:textSize="18dp"/>
     </LinearLayout>

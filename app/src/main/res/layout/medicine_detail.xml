@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginVertical="10dp"
+            android:fontFamily="@font/pretendard_semibold"
             android:text="약 이름"
             android:textStyle="bold"
             android:textSize="30dp"/>
@@ -37,6 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="제품명"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -47,12 +49,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/pretendard_light"
                 android:text="name"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="업체명"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -63,12 +67,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/pretendard_light"
                 android:text="enterprise"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="유효기간"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -79,12 +85,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/pretendard_light"
                 android:text="expiration"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="저장방법"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -96,12 +104,14 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
                 android:singleLine="false"
+                android:fontFamily="@font/pretendard_light"
                 android:text="storage"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="효능효과"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -113,12 +123,14 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
                 android:singleLine="false"
+                android:fontFamily="@font/pretendard_light"
                 android:text="effect"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="용법용량"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -130,12 +142,14 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
                 android:singleLine="false"
+                android:fontFamily="@font/pretendard_light"
                 android:text="description"
                 android:textSize="15dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
                 android:text="주의사항"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -147,6 +161,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="20dp"
                 android:singleLine="false"
+                android:fontFamily="@font/pretendard_light"
                 android:text="warning"
                 android:textSize="15dp"/>
         </LinearLayout>
