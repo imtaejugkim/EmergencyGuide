@@ -35,7 +35,8 @@
             android:includeFontPadding="false"
             android:layout_marginStart="8dp"
             app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintStart_toEndOf="@id/iv_eva_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/iv_eva_back"
             app:layout_constraintBottom_toBottomOf="@id/iv_eva_back"/>
         <TextView
@@ -72,7 +73,7 @@
             android:id="@+id/tv_eva_earthquake_tips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지진 시 대피 요령"
+            android:text="지진 시 행동 요령"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginTop="29dp"
@@ -129,7 +130,7 @@
             android:id="@+id/tv_eva_fire_tips"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="화재 시 대피 요령"
+            android:text="화재 시 행동 요령"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_marginTop="29dp"
@@ -188,7 +189,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/evacuation_earthquake_tips"
+            android:text="@string/evacuation_fire_tips"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:layout_marginTop="4dp"

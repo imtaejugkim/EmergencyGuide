@@ -1,5 +1,6 @@
 package com.example.emergencyguide.Evacuation
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -49,6 +50,16 @@ class EvacuationActivity : AppCompatActivity(), OnMapReadyCallback {
         // back button 클릭 시 activity 종료
         binding.ivEvaBack.setOnClickListener {
             finish()
+        }
+        binding.btnEvaEarthquakeReadMore.setOnClickListener {
+            val intent = Intent(this, EvacuateTipsActivity::class.java)
+            intent.putExtra("disaster", "지진")
+            startActivity(intent)
+        }
+        binding.btnEvaFireReadMore.setOnClickListener {
+            val intent = Intent(this, EvacuateTipsActivity::class.java)
+            intent.putExtra("disaster", "화재")
+            startActivity(intent)
         }
     }
 
