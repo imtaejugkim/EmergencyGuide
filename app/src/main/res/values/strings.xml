@@ -23,7 +23,7 @@
 
     <!-- 대피 화면 -->
     <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
-    <string name="evacuation_fire_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
+    <string name="evacuation_fire_tips">1. 주변 사람에게 알리기\n2. 대피 방법 결정\n3. 신속히 대피</string>
 
     <!-- 약 복용법 화면 -->
     <!-- 약 이름 -->

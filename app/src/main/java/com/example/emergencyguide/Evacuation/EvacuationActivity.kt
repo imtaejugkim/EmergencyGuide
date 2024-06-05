@@ -53,10 +53,12 @@ class EvacuationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         binding.btnEvaEarthquakeReadMore.setOnClickListener {
             val intent = Intent(this, EvacuateTipsActivity::class.java)
+            intent.putExtra("disaster", "지진")
             startActivity(intent)
         }
         binding.btnEvaFireReadMore.setOnClickListener {
             val intent = Intent(this, EvacuateTipsActivity::class.java)
+            intent.putExtra("disaster", "화재")
             startActivity(intent)
         }
     }
