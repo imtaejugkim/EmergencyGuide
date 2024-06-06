@@ -38,6 +38,7 @@
 
     <!-- 대피 화면 -->
     <string name="evacuation_earthquake_tips">1. 안전한 장소로 이동\n2. 주변 위험 요인 확인\n3. 대피 후 구조 요청</string>
+    <string name="evacuation_fire_tips">1. 주변 사람에게 알리기\n2. 대피 방법 결정\n3. 신속히 대피</string>
 
     <!-- 약 복용법 화면 -->
     <!-- 약 이름 -->
@@ -798,4 +799,6 @@
 (2) 직사광선을 피하고 될 수 있는 한 습기가 적은 서늘한 곳에 보관할 것\n
 (3) 오용(잘못사용)을 막고 품질의 보존을 위하여 다른 용기에 바꾸어 넣지 말 것</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
