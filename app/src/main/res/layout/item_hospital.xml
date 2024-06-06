@@ -26,6 +26,7 @@
             android:elevation="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="@font/pretendard_thin"
             android:text="병원0"/>
 
         <ImageView
@@ -43,6 +44,7 @@
 
     <TextView
         android:id="@+id/tv_hospital_name"
+        android:fontFamily="@font/pretendard_semibold"
         android:text="병원0"
         android:textSize="12sp"
         android:layout_width="wrap_content"
@@ -56,6 +58,7 @@
         android:id="@+id/tv_hospital_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/pretendard_regular"
         android:text="월-금: 8am-7pm"
         app:layout_constraintTop_toBottomOf="@id/tv_hospital_name"
         android:textSize="16sp"
