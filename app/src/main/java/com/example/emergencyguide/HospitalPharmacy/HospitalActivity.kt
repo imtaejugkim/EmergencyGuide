@@ -29,6 +29,8 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mapView: MapView
     private lateinit var hospitalAdapter: HospitalAdapter
     private var hospitalData: ArrayList<HospitalData> = arrayListOf()
+    private var addressData : ArrayList<String> = arrayListOf()
+    private var phoneData : ArrayList<String> = arrayListOf()
     private lateinit var googleMap: GoogleMap
     private var currentMarker: Marker? = null
 
@@ -37,10 +39,42 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityHospitalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initData()
         initMapView(savedInstanceState)
         initRecyclerView()
         initMoveRecyclerView()
         initShowDetail()
+        initBack()
+
+    }
+
+    private fun initData() {
+        addressData.add("서울특별시 광진구 능동로 120-1")
+        addressData.add("화양동 번지 5층 5-106")
+        addressData.add("서울특별시 광진구 화양동 아차산로 241 연한빌딩 7층")
+        addressData.add("서울특별시 광진구 아차산로 237 삼진빌딩 가온정신건강의학과 의원 4층")
+        addressData.add("서울특별시 광진구 자양제3동 580-13 4층")
+        addressData.add("서울특별시 광진구 군자동 광나루로 361")
+        addressData.add("서울특별시 광진구 자양제4동 8-1")
+        addressData.add("서울특별시 광진구 아차산로 213 리즈온의원 건대점 3층")
+        addressData.add("서울특별시 광진구 동일로 178")
+
+        phoneData.add("1588-1533")
+        phoneData.add("02-3409-7533")
+        phoneData.add("02-469-3003")
+        phoneData.add("02-464-6051")
+        phoneData.add("02-464-6051")
+        phoneData.add("02-469-5990")
+        phoneData.add("02-466-3575")
+        phoneData.add("02-463-1755")
+        phoneData.add("02-6952-7737")
+
+    }
+
+    private fun initBack() {
+        binding.ivHospitalBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun initShowDetail() {
@@ -48,13 +82,16 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
             val selectedPosition = (binding.rvHospital.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
             if (selectedPosition != RecyclerView.NO_POSITION && hospitalData.isNotEmpty()) {
                 val selectedHospital = hospitalData[selectedPosition]
-
                 val intent = Intent(this, HospitalDetailActivity::class.java)
                 intent.putExtra("hospitalName", selectedHospital.hospitalName)
                 intent.putExtra("hospitalImg", selectedHospital.hospitalImg)
                 intent.putExtra("hospitalTime", selectedHospital.hospitalTime)
                 intent.putExtra("hospitalLat", selectedHospital.hospitalLat)
                 intent.putExtra("hospitalLng", selectedHospital.hospitalLng)
+                Log.d("selectedPostion",selectedPosition.toString())
+
+                intent.putExtra("hospitalAddress", addressData!![selectedPosition])
+                intent.putExtra("hospitalPhone", phoneData[selectedPosition])
                 startActivity(intent)
             }
         }

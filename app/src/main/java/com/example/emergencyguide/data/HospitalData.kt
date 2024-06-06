@@ -6,5 +6,5 @@ data class HospitalData(
     val hospitalTime : String,
     val hospitalLat : Double,
     val hospitalLng : Double,
-    val distance: Double
+    val distance: Double,
 )

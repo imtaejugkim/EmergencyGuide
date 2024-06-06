@@ -57,7 +57,10 @@
         android:id="@+id/tv_hospital_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp"
         android:text="병원 이름"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/cl_review_top_bar"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"/>
 
@@ -67,23 +70,37 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tv_hospital_name"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
+        android:layout_marginTop="12dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         android:text="@string/review_post_name"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_review_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/rectangle_gray1_white_6"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
         app:layout_constraintEnd_toEndOf="@id/gl_hospital_end"
         app:layout_constraintTop_toBottomOf="@id/tv_review_user_name">
 
         <EditText
+            android:id="@+id/et_review_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/gray_1"
+
+            android:background="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/review_post_name_hint"/>
+            android:hint="@string/review_post_name_hint"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -91,6 +108,9 @@
         android:id="@+id/tv_review_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/cl_review_user_name"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
         android:hint="@string/review_post"/>
@@ -100,10 +120,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="331:181"
+        android:layout_marginTop="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:background="@drawable/rectangle_gray1_white_6"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
         app:layout_constraintEnd_toEndOf="@id/gl_hospital_end"
         app:layout_constraintTop_toBottomOf="@id/tv_review_post">
@@ -112,11 +134,38 @@
             android:id="@+id/et_review_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/gray_1"
+            android:textSize="14sp"
+            android:background="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:hint="@string/review_post_hint"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/hospital_rectangle_black_8"
+        app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
+        app:layout_constraintEnd_toEndOf="@id/gl_hospital_end">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/review_post_submit"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
