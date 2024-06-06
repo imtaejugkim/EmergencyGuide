@@ -30,6 +30,7 @@
                 android:id="@+id/tv_evacuate_tips"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_semibold"
                 android:text="대피 요령"
                 android:textColor="@color/black"
                 android:textSize="20sp"

@@ -39,6 +39,7 @@
 
         <TextView
             android:id="@+id/tv_hospital_title"
+            android:fontFamily="@font/pretendard_semibold"
             android:text="병원이름"
             android:textSize="20sp"
             android:layout_width="wrap_content"
