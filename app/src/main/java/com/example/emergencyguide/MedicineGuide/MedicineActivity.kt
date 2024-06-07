@@ -50,7 +50,7 @@ class MedicineActivity : AppCompatActivity() {
         adapter = MedicineExpandableAdapter(medicineList, medicineInfoList)
         recyclerView.adapter = adapter
 
-        val imageView = findViewById<ImageView>(R.id.ic_back_button)
+        val imageView = findViewById<ImageView>(R.id.iv_hospital_back)
         imageView.setOnClickListener {
             onBackPressed()
         }
