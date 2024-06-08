@@ -23,8 +23,6 @@
         <activity
             android:name=".HospitalPharmacy.ReviewPostActivity"
             android:exported="false" />
-            android:name=".Evacuation.EvacuateTipsActivity"
-            android:exported="false" />
         <activity
             android:name=".Evacuation.EvacuationActivity"
             android:exported="false" />
@@ -43,6 +41,8 @@
         <activity
             android:name=".EmergencyGuide.DetailActivity"
             android:exported="false" />
+        <activity android:name=".Evacuation.EvacuateTipsActivity"
+            android:exported="false"/>
         <activity
             android:name=".MedicineGuide.MedicineDetailActivity"
             android:exported="false" />

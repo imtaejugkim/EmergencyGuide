@@ -31,6 +31,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     private var hospitalData: ArrayList<HospitalData> = arrayListOf()
     private var addressData : ArrayList<String> = arrayListOf()
     private var phoneData : ArrayList<String> = arrayListOf()
+    private var timeData : ArrayList<String> = arrayListOf()
     private lateinit var googleMap: GoogleMap
     private var currentMarker: Marker? = null
 
@@ -68,6 +69,16 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         phoneData.add("02-466-3575")
         phoneData.add("02-463-1755")
         phoneData.add("02-6952-7737")
+
+        timeData.add("오전 8:30 ~ 오후 5:30")
+        timeData.add("오전 11:00 ~ 오후 9:00")
+        timeData.add("오전 10:00 ~ 오후 9:00")
+        timeData.add("오전 9:30 ~ 오후 7:00")
+        timeData.add("영업시간 정보 없음")
+        timeData.add("영업시간 정보 없음")
+        timeData.add("오전 10:00 ~ 오후 8:30")
+        timeData.add("영업시간 정보 없음")
+
 
     }
 
@@ -150,7 +161,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("HospitalActivity", e.toString(), e)
             }
-
+            val defaultPhotoUrl = "https://cdn-icons-png.flaticon.com/128/527/527034.png"
             override fun onResponse(call: Call, response: Response) {
                 response.body()?.let { responseBody ->
                     val responseString = responseBody.string()
@@ -164,8 +175,8 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
                         val latitude = location.getDouble("lat")
                         val longitude = location.getDouble("lng")
                         val photoReference = result.optJSONArray("photos")?.getJSONObject(0)?.getString("photo_reference") ?: ""
-                        val photoUrl = if (photoReference.isNotEmpty()) "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=$photoReference&key=$apiKey" else ""
-                        val openingHours = result.optJSONObject("opening_hours")?.getString("open_now") ?: "Unknown"
+                        val photoUrl = if (photoReference.isNullOrEmpty()) defaultPhotoUrl else "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=$photoReference&key=$apiKey"
+                        val openingHours = timeData[i]
                         val distance = Math.sqrt(Math.pow(latitude - baseLocation.latitude, 2.0) + Math.pow(longitude - baseLocation.longitude, 2.0))
                         val hospital = HospitalData(name, photoUrl, openingHours, latitude, longitude, distance)
                         tempHospitalData.add(hospital)
