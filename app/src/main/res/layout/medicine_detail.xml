@@ -24,7 +24,7 @@
             android:fontFamily="@font/pretendard_semibold"
             android:text="약 이름"
             android:textStyle="bold"
-            android:textSize="30dp"/>
+            android:textSize="25dp"/>
     </LinearLayout>
 
     <ScrollView
