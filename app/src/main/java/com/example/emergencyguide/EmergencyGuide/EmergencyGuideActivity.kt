@@ -124,6 +124,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
             ExpandableBoxData(
                 title = "심정지",
                 content = "심폐소생술(CPR)",
+                youtubeUrl = "https://www.youtube.com/watch?v=2ZIdOeTZRMk",
                 steps = listOf(
                     StepData(R.drawable.first_aid_cpr_1, "Step 1", listOf("심정지 및 무호흡 확인", "양어깨를 두드리며 말을 걸고 눈과 귀로 심정지 및 무호흡 유무를 확인한다.")),
                     StepData(R.drawable.first_aid_cpr_2, "Step 2", listOf("도움 및 119신고 요청", "주변사람에게(꼭 집어서) 119신고를 부탁하고 자동심장충격기를 요청한다.")),
@@ -135,6 +136,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
             ExpandableBoxData(
                 title = "기도폐쇄/목에 걸림",
                 content = "하임리히법(Heimlich)",
+                youtubeUrl = "https://www.youtube.com/watch?v=PxP2VArWh94",
                 steps = listOf(
                     StepData(R.drawable.first_aid_heimlich_1, "Step 1", listOf("상태체크 및 119신고 요청", "환자가 숨쉬기 힘들어 하거나 목을 감싸 괴로움을 호소할 경우 기도폐쇄로 판단하고 주변에 119에 신고를 요청한다.")),
                     StepData(R.drawable.first_aid_heimlich_2, "Step 2", listOf("하임리히법 실시", "환자의 등 뒤에 서서 주먹을 쥔 손의 엄지손가락 방향을 배 윗부분에 대고 다른 한 손을 위에 겹친 후 환자의 배꼽에서 명치 사이의 배 부위를 두 손으로 위로 쓸어올리듯 강하게 밀어 올려서 이물을 제거하고 이물이 밖으로 나왔는지 확인한다."))
@@ -143,6 +145,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
             ExpandableBoxData(
                 title = "열상화상",
                 content = "열상화상 응급 처지",
+                youtubeUrl = "https://www.youtube.com/watch?v=RIU2i0xVipU",
                 steps = listOf(
                     StepData(R.drawable.first_aid_burn_1, "Step 1", listOf("화상 부위를 찬물에 20분 이상 담가 열기를 식힌다.", "뜨거운 액체에 화상을 입은 경우 옷을 벗기지 않고 냉각시킨다.")),
                     StepData(R.drawable.first_aid_burn_2, "Step 2", listOf("물집은 절대 터뜨리지 말고 로션, 된장, 간장, 소주 등도 절대 바르지 않는다", "시계, 반지, 목걸이 등의 장신구는 피부가 부어오르기 전에 최대한 빨리 제거한다.")),
@@ -152,6 +155,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
             ExpandableBoxData(
                 title = "벌에 쏘인 경우",
                 content = "독침 제거",
+                youtubeUrl = "https://www.youtube.com/watch?v=NAyWuEA2mYA",
                 steps = listOf(
                     StepData(R.drawable.first_aid_bee_1, "Step 1", listOf("벌침 찾기", "빨갛게 부어오른 부위에 검은 점처럼 보이는 벌침을 찾는다.")),
                     StepData(R.drawable.first_aid_bee_2, "Step 2", listOf("벌침 제거", "신용카드 등을 이용해 피부를 긁어내듯 침을 제거한다.")),
@@ -214,6 +218,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
                         val intent = Intent(context, DetailActivity::class.java).apply {
                             putExtra("title", data.title)
                             putExtra("content", data.content)
+                            putExtra("youtubeUrl", data.youtubeUrl)
                         }
                         context.startActivity(intent)
                     }) {

@@ -18,6 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emergencyguide.databinding.ActivityDetailBinding
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.compose.ui.viewinterop.AndroidView
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -28,16 +31,17 @@ class DetailActivity : AppCompatActivity() {
 
         val title = intent.getStringExtra("title") ?: "Detail"
         val content = intent.getStringExtra("content") ?: "No content available"
+        val youtubeUrl = intent.getStringExtra("youtubeUrl") ?: ""
 
         val composeView = binding.composeViewDetail
         composeView.setContent {
-            DetailScreen(title = title, content = content)
+            DetailScreen(title = title, content = content, youtubeUrl = youtubeUrl)
         }
         setContentView(binding.root)
     }
 
     @Composable
-    fun DetailScreen(title: String, content: String) {
+    fun DetailScreen(title: String, content: String, youtubeUrl: String) {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = Color.White
@@ -59,6 +63,15 @@ class DetailActivity : AppCompatActivity() {
                     elevation = 0.dp
                 )
                 Text(text = content, modifier = Modifier.padding(16.dp), fontSize = 16.sp)
+                if (youtubeUrl.isNotEmpty()) {
+                    AndroidView(factory = { context ->
+                        WebView(context).apply {
+                            webViewClient = WebViewClient()
+                            settings.javaScriptEnabled = true
+                            loadUrl(youtubeUrl)
+                        }
+                    }, modifier = Modifier.fillMaxSize())
+                }
             }
         }
     }
