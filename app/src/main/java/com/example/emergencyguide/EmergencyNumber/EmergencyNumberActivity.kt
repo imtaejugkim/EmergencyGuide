@@ -58,6 +58,7 @@ import androidx.compose.ui.unit.dp
 import com.example.emergencyguide.EmergencyNumber.composables.AddandDeleteButtons
 import com.example.emergencyguide.EmergencyNumber.composables.CreatePersonalDialog
 import com.example.emergencyguide.EmergencyNumber.composables.EmergencyContact
+import com.example.emergencyguide.ui.theme.pretendardTypography
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
@@ -118,7 +119,12 @@ class EmergencyNumberActivity : AppCompatActivity() {
 
         val composeView = binding.composeViewEmergencyNumber
         composeView.setContent {
-            InitComposeContent()
+            MaterialTheme(
+                typography = pretendardTypography, // 여기에 Typography를 설정
+                content = {
+                    InitComposeContent()
+                }
+            )
         }
 
         setContentView(binding.root)
@@ -142,22 +148,30 @@ class EmergencyNumberActivity : AppCompatActivity() {
             modifier = Modifier.fillMaxSize(),
             color = Color.White
         ) {
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
+                    .padding(14.dp),
             ) {
-                TopAppBar(
-                    title = { Text(text = "긴급 연락처") },
-                    navigationIcon = {
-                        IconButton(onClick = { finish() }) {
-                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
-                        }
-                    },
-                    backgroundColor = Color.White,
-                    contentColor = Color.Black,
-                    elevation = 0.dp
-                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically // 아이콘과 제목의 높이를 맞춤
+                ) {
+                    IconButton(onClick = { finish() }) {
+                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                    }
+
+                    Spacer(modifier = Modifier.width(100.dp))
+
+                    Text(text = "긴급 연락처", style = pretendardTypography.h1)
+
+                }
+
 
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Start) { // 왼쪽 정렬
                     TabRow(
