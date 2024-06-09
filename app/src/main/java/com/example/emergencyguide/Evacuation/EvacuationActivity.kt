@@ -65,7 +65,7 @@ class EvacuationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         val university = LatLng(37.5431, 127.0764)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(university, 16f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(university, 15f))
 
         for (location in evacuationList) {
             googleMap.addMarker(

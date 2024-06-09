@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
+        android:fontFamily="@font/pretendard_semibold"
         android:background="@drawable/rectangle_gray2_6"
         android:textSize="16sp"
         android:textColor="@color/black"
@@ -44,6 +45,7 @@
     <TextView
         android:id="@+id/tv_hospital_name"
         android:fontFamily="@font/pretendard_semibold"
+        android:textColor="@color/black"
         android:text="병원0"
         android:textSize="12sp"
         android:layout_width="wrap_content"
@@ -58,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/pretendard_regular"
+        android:textColor="@color/black"
         android:text="월-금: 8am-7pm"
         app:layout_constraintTop_toBottomOf="@id/tv_hospital_name"
         android:textSize="16sp"

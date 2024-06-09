@@ -55,19 +55,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
+    <SearchView
         android:id="@+id/et_hospital_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/cl_hospital_top_bar"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
         app:layout_constraintEnd_toEndOf="@id/gl_hospital_end"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@drawable/main_rectangle_gray2_10"
-        android:paddingEnd="8dp"
-        android:paddingStart="8dp"
-        android:hint="@string/hospital_search"
+        app:iconifiedByDefault="false"
+        app:queryHint="검색어를 입력하세요."
         android:textSize="14sp"/>
 
     <com.google.android.gms.maps.MapView

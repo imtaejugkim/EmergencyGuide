@@ -3,6 +3,7 @@ package com.example.emergencyguide.HospitalPharmacy
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -46,7 +47,43 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
         initMoveRecyclerView()
         initShowDetail()
         initBack()
+        initSearchView()
 
+    }
+
+    private fun initSearchView() {
+        val searchView = binding.etHospitalSearch
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let {
+                    searchAndMoveToHospital(it)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let {
+                    filterHospitals(it)
+                }
+                return true
+            }
+        })
+    }
+
+    private fun filterHospitals(query: String) {
+        val filteredList = hospitalData.filter {
+            it.hospitalName.contains(query, ignoreCase = true)
+        }
+        hospitalAdapter.updateData(filteredList)
+    }
+
+    private fun searchAndMoveToHospital(query: String) {
+        val position = hospitalData.indexOfFirst { it.hospitalName.contains(query, ignoreCase = true) }
+        if (position != -1) {
+            binding.rvHospital.smoothScrollToPosition(position)
+            moveCameraToPosition(position)
+        }
     }
 
     private fun initData() {
