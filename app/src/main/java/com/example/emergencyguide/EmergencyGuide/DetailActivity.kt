@@ -1,6 +1,8 @@
 package com.example.emergencyguide.EmergencyGuide
 
 import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,10 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.emergencyguide.databinding.ActivityDetailBinding
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.compose.ui.viewinterop.AndroidView
+import com.example.emergencyguide.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding

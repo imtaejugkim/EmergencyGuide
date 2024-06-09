@@ -31,4 +31,10 @@ class HospitalAdapter(val context: Context, private val hospitalData: ArrayList<
     override fun onBindViewHolder(holder: HospitalAdapter.ViewHolder, position: Int) {
         holder.bind(hospitalData[position])
     }
+
+    fun updateData(newData: List<HospitalData>) {
+        hospitalData.clear()
+        hospitalData.addAll(newData)
+        notifyDataSetChanged()
+    }
 }
