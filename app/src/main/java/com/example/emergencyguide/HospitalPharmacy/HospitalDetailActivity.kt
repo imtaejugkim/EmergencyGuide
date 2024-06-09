@@ -31,7 +31,7 @@ class HospitalDetailActivity : AppCompatActivity() {
         val hospitalAddress = intent.getStringExtra("hospitalAddress") ?: "서울시"
         val hospitalPhone = intent.getStringExtra("hospitalPhone") ?: "02-450-4456"
 
-        initImg()
+        //initImg()
         initSetting(hospitalName!!,hospitalImg!!,hospitalTime!!,hospitalLat,hospitalLng, hospitalAddress!!, hospitalPhone!!)
         initData()
         initRecyclerView()
@@ -41,19 +41,19 @@ class HospitalDetailActivity : AppCompatActivity() {
 
     }
 
-    private fun initImg() {
-        Glide.with(this)
-            .load("https://cdn-icons-png.flaticon.com/128/67/67872.png")
-            .into(binding.ivAddress)
-
-        Glide.with(this)
-            .load("https://cdn-icons-png.flaticon.com/128/7764/7764301.png")
-            .into(binding.ivHours)
-
-        Glide.with(this)
-            .load("https://cdn-icons-png.flaticon.com/128/483/483969.png")
-            .into(binding.ivPhone)
-    }
+//    private fun initImg() {
+//        Glide.with(this)
+//            .load("https://cdn-icons-png.flaticon.com/128/67/67872.png")
+//            .into(binding.ivAddress)
+//
+//        Glide.with(this)
+//            .load("https://cdn-icons-png.flaticon.com/128/7764/7764301.png")
+//            .into(binding.ivHours)
+//
+//        Glide.with(this)
+//            .load("https://cdn-icons-png.flaticon.com/128/483/483969.png")
+//            .into(binding.ivPhone)
+//    }
 
     private fun setActivityResult() {
         activityResultLauncher = registerForActivityResult(

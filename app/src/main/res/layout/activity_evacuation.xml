@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/pretendard_semibold"
-            android:text="대피 페이지"
+            android:text="대피"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:includeFontPadding="false"
@@ -129,7 +130,7 @@
             android:fontFamily="@font/pretendard_light"
             android:text="@string/evacuation_earthquake_tips"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@id/tv_eva_earthquake_safety"
             app:layout_constraintTop_toBottomOf="@id/tv_eva_earthquake_safety"/>
@@ -203,7 +204,7 @@
             android:fontFamily="@font/pretendard_light"
             android:text="@string/evacuation_fire_tips"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@id/tv_eva_fire_safety"
             app:layout_constraintTop_toBottomOf="@id/tv_eva_fire_safety"/>
