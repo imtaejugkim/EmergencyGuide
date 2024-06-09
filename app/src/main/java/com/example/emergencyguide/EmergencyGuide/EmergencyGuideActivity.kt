@@ -93,7 +93,7 @@ class EmergencyGuideActivity : AppCompatActivity() {
 
                     Spacer(modifier = Modifier.width(100.dp))
 
-                    Text(text = "긴급 연락처", style = pretendardTypography.h1)
+                    Text(text = "응급 처치", style = pretendardTypography.h1)
 
                 }
 
