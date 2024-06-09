@@ -46,6 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.emergencyguide.R
 import com.example.emergencyguide.databinding.ActivityEmergencyGuideBinding
+import com.example.emergencyguide.ui.theme.pretendardTypography
 
 class EmergencyGuideActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEmergencyGuideBinding
@@ -55,7 +56,12 @@ class EmergencyGuideActivity : AppCompatActivity() {
 
         val composeView = binding.composeViewEmergencyGuide
         composeView.setContent {
-            InitComposeContent()
+            MaterialTheme(
+                typography = pretendardTypography, // 여기에 Typography를 설정
+                content = {
+                    InitComposeContent()
+                }
+            )
         }
         setContentView(binding.root)
     }
@@ -70,22 +76,26 @@ class EmergencyGuideActivity : AppCompatActivity() {
             modifier = Modifier.fillMaxSize(),
             color = Color.White
         ) {
+            Spacer(modifier = Modifier.height(30.dp))
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
+                    .padding(14.dp),
             ) {
-                TopAppBar(
-                    title = { Text(text = "응급 처치") },
-                    navigationIcon = {
-                        IconButton(onClick = { finish() }) {
-                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
-                        }
-                    },
-                    backgroundColor = Color.White,
-                    contentColor = Color.Black,
-                    elevation = 0.dp
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically // 아이콘과 제목의 높이를 맞춤
+                ) {
+                    IconButton(onClick = { finish() }) {
+                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back")
+                    }
+
+                    Spacer(modifier = Modifier.width(100.dp))
+
+                    Text(text = "응급 처치", style = pretendardTypography.h1)
+
+                }
 
                 Row(
                     modifier = Modifier
