@@ -42,6 +42,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -73,7 +74,7 @@ fun TopBar(onBackPressed: () -> Unit) {
 
 
 @Composable
-fun SearchField() {
+fun SearchField(searchQuery: TextFieldValue, onSearchQueryChange: (TextFieldValue) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -92,8 +93,8 @@ fun SearchField() {
                 modifier = Modifier.padding(end = 8.dp)
             )
             TextField(
-                value = "",
-                onValueChange = { /* TODO: 검색 기능 추가 */ },
+                value = searchQuery,
+                onValueChange = onSearchQueryChange,
                 placeholder = { Text("검색어를 입력하세요.") },
                 modifier = Modifier
                     .fillMaxWidth(),
