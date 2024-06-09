@@ -54,7 +54,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun initSearchView() {
         val searchView = binding.etHospitalSearch
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
                     searchAndMoveToHospital(it)
@@ -70,6 +70,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         })
     }
+
 
     private fun filterHospitals(query: String) {
         val filteredList = hospitalData.filter {
@@ -235,7 +236,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun moveCameraToPosition(position: Int) {
         val hospital = hospitalData[position]
         val latLng = LatLng(hospital.hospitalLat, hospital.hospitalLng)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
         if (currentMarker != null) {
             currentMarker?.remove()
         }

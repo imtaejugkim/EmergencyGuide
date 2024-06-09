@@ -60,15 +60,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/et_hospital_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/cl_hospital_top_bar"
         app:layout_constraintStart_toStartOf="@id/gl_hospital_start"
         app:layout_constraintEnd_toEndOf="@id/gl_hospital_end"
-        app:iconifiedByDefault="false"
-        app:queryHint="검색어를 입력하세요."
+        android:queryHint="검색어를 입력하세요."
         android:textSize="14sp"/>
 
     <com.google.android.gms.maps.MapView
