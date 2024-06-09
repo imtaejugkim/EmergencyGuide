@@ -235,7 +235,7 @@ class HospitalActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun moveCameraToPosition(position: Int) {
         val hospital = hospitalData[position]
         val latLng = LatLng(hospital.hospitalLat, hospital.hospitalLng)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18f))
         if (currentMarker != null) {
             currentMarker?.remove()
         }
